@@ -18,7 +18,7 @@ def get_data(start_date, end_date):
         mstcustomer.cstPT AS AgentName,
         CASE 
             WHEN SUBSTRING(csFlight, 1, 2) IN ('ID', 'IU', 'IW', 'JT') THEN 'Lion Grup'
-            ELSE SUBSTRING(csFlight, 1, 3)  -- Menggunakan 3 karakter untuk flight selain Lion Grup
+            ELSE SUBSTRING(csFlight, 1, 2)  -- Menggunakan 3 karakter untuk flight selain Lion Grup
         END AS FlightGroup,
         SUM(csBeratChargeAble) AS TotalBeratChargeAble
     FROM mstcsc
