@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Agent</title>
+</head>
+
+<body>
+    <h1>Selamat datang di Laporan Agent</h1>
+    <form action="/generate_report" method="post">
+        <label for="start_date">Tanggal Mulai:</label>
+        <input type="date" id="start_date" name="start_date" required>
+        <label for="end_date">Tanggal Akhir:</label>
+        <input type="date" id="end_date" name="end_date" required>
+        <button type="submit">Generate</button>
+    </form>
+    {% if start_date and end_date %}
+    <p>Status: Laporan siap diunduh</p>
+    <a href="/download_excel?start_date={{ start_date }}&end_date={{ end_date }}">Unduh Excel</a>
+    <a href="/download_pdf?start_date={{ start_date }}&end_date={{ end_date }}">Unduh PDF</a>
+    {% endif %}
+</body>
+
+</html>
